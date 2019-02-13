@@ -20,7 +20,7 @@ For product handle **chronic-zone-hooded-sweatshirt**, which is a hoodie, I also
 | Namespace        | Key             | Value Type | Value                  |
 |:-----------------|:----------------|:-----------|:-----------------------|
 | related-products | handle-1        | string     | chronic-zone-long-sleeve-t-shirt     |
-| related-prodcuts | handle-2        | string     | chronic-zone-short-sleeve-unisex-t-shirt |
+| related-products | handle-2        | string     | chronic-zone-short-sleeve-unisex-t-shirt |
 
 Now for product handles *chronic-zone-long-sleeve-t-shirt* and *chronic-zone-short-sleeve-unisex-t-shirt*, add similar meta data. For exmple, product handle **chronic-zone-long-sleeve-t-shirt** should look like the following:
 
