@@ -12,10 +12,6 @@ For each product that will have related products add the following meta fields:
 | Namespace        | Key             | Value Type | Value                  | Notes                                       |
 |------------------|:----------------|:-----------|:-----------------------|:--------------------------------------------|
 | related-products | handle-x        | string     | the product handle     | where x is a sequential number starting at 1|
-|Namespace:    related-products
-|Key:          handle-x - where x is a sequential number starting at 1
-|Value Type:   string
-|Value:        the product handle
 
 Exampe:
 
