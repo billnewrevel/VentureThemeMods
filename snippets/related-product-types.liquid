@@ -1,0 +1,46 @@
+{% comment %}
+	Products that have multiple styles (T-Shirts, Tanks, etc) are related using Product
+	MetaFields.  If a product has more than one style, then all the other related styles
+	handle id can be found in the product.metafields.related-products namespace.  Each
+	related handle id is found using the handle-x key, where x is a unique sequencial
+	integer starting at 0.
+{% endcomment %}
+
+{% assign grid_item_width = 'large--one-fifth medium--one-third small--one-half' %}
+{% assign prod_list = '' %}
+{%- assign width = '97' -%}
+{%- assign height = '62' -%}
+
+{% comment %}
+	For each related-product entry, build a key string using the loop index
+{% endcomment %}
+{% for related_prod_handle in product.metafields.related-products %}
+	{% assign key = 'handle-' | append: forloop.index %}
+  {% assign prod_handle = related_prod_handle[1] %}
+	{% comment %}
+		For each key, store the value (the product handle id) in a semi-colon
+		separated list
+	{% endcomment %}
+	{% assign prod_list = prod_list | append: prod_handle | append: ';' %}
+{% endfor %}
+
+{% if prod_list and prod_list.size > 0 %}
+	{% assign related_prod_handles = prod_list | remove_last: ';' | split: ';' %}
+
+  {% if prod_list.size > 1 %}
+		<h2 class="product-single__title">Other Product Types</h2>
+  		<div class="photos__item photos__item--thumbs">
+    		<div class="product-single__thumbnails related-product-single__thumbnails-{{section.id}}">
+          {% for prod_handle in related_prod_handles %}
+            {% assign related_product_type = all_products[prod_handle] %}
+				    {% assign image = related_product_type.featured_image %}
+				    <div class="product-single__thumbnail-item related-product-single__thumbnail-item-{{ section.id }}" data-image-id="{{ image.id }}">
+              <a href="{{ related_product_type.url }}" class="product-single__thumbnail related-product-single__thumbnail-{{ section.id }}">
+                <img src="{{ image.src | img_url: '100x100' }}" alt="{{ image.alt | escape }}">
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+		   </div>
+  {% endif %}
+{% endif %}
