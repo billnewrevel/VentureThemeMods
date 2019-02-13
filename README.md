@@ -1,7 +1,7 @@
 # venture-theme-mods
 Modifications to the Venture Theme for use in my online t-shirt stores
 
-## h2 Feature Branch **related-product-types**
+## Feature Branch **related-product-types**
 
 Adds functionality to display related product styles on a product page.  This feature is useful for product designs that are offered on multiple apparel types, e.g., a single design that apprears on t-shirts, long-sleeve t-shirts, and hoodies - but could also be used to bundle products - although that is not what I am using it for, the coding is the same. The product page file sections/product-template.liquid has an added section below the payment buttons that will display the related products if there are any to display. If the user clicks on the image, they will be taken to the product page.
 
