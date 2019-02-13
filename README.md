@@ -10,22 +10,17 @@ Meta data must be added to each of you products that you want to have related pr
 For each product that will have related products add the following meta fields:
 
 | Namespace        | Key             | Value Type | Value                  | Notes                                       |
-|------------------|:----------------|:-----------|:-----------------------|:--------------------------------------------|
+|:-----------------|:----------------|:-----------|:-----------------------|:--------------------------------------------|
 | related-products | handle-x        | string     | the product handle     | where x is a sequential number starting at 1|
 
 Exampe:
 
 For product handle chronic-zone-hooded-sweatshirt, which is a hoodie, I also want to display a t-shirt and long sleeve t-shirt on the hoodie's product page. So I need to add product handles for both the t-shirt and long-sleeve t-shirt to the hoodies meta data. So the hoodies meta data will look like the following - note there will be 2 meata data entries because we want to relate 2 products:
 
-Namespace:    related-products
-Key:          handle-1
-Value Type:   string
-Value:        chronic-zone-long-sleeve-t-shirt
-
-Namesapce:    related-products
-Key:          handle-2
-Value Type:   string
-Value:        chronic-zone-short-sleeve-unisex-t-shirt
+| Namespace        | Key             | Value Type | Value                  |
+|:-----------------|:----------------|:-----------|:-----------------------|
+| related-products | handle-1        | string     | chronic-zone-long-sleeve-t-shirt     |
+| related-prodcuts | handle-2        | string     | chronic-zone-short-sleeve-unisex-t-shirt |
 
 Now for product handles chronic-zone-long-sleeve-t-shirt and chronic-zone-short-sleeve-unisex-t-shirt, add similar meta data. For exmple, product handle chronic-zone-long-sleeve-t-shirt should look like the following:
 
