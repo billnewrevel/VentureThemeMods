@@ -2708,7 +2708,9 @@ theme.Product = (function() {
       productImageWrappers: '.product__photo-wrapper-' + sectionId,
       productThumbContainers: '.product-single__thumbnail-item-' + sectionId,
       productThumbsWrapper: '.product-single__thumbnails-' + sectionId,
+      relatedProductThumbsWrapper: '.related-product-single__thumbnails-' + sectionId,
       productThumbs: '.product-single__thumbnail-' + sectionId,
+      relatedProductThumbs: '.related-product-single__thumbnail-' + sectionId,
       saleTag: '#ProductSaleTag-' + sectionId,
       productStock: '#ProductStock-' + sectionId,
       singleOptionSelector: '.single-option-selector-' + sectionId,
@@ -2743,6 +2745,7 @@ theme.Product = (function() {
       this._productZoomImage();
       this._productThumbSwitch();
       this._productThumbnailSlider();
+      this._relatedProductThumbnailSlider();
       this._initQtySelector();
 
       if (this.settings.ajaxCart) {
@@ -3051,7 +3054,7 @@ theme.Product = (function() {
     },
 
     /*
-      Thumbnail slider
+      Product Thumbnail slider
      */
     _productThumbnailSlider: function() {
       var $productThumbsWrapper = $(this.selectors.productThumbsWrapper);
@@ -3117,6 +3120,59 @@ theme.Product = (function() {
           true
         );
       }
+    },
+
+    /*
+      Related Product Thumbnail slider
+     */
+    _relatedProductThumbnailSlider: function() {
+      var $productThumbsWrapper = $(this.selectors.relatedProductThumbsWrapper);
+      var $productThumbs = $(this.selectors.relatedProductThumbs);
+      if (!$productThumbs.length) {
+        return;
+      }
+
+      //if ($productThumbs.length > 2) {
+        $productThumbsWrapper.on(
+          'init' + this.settings.namespace,
+          this._productSwipeInit.bind(this)
+        );
+
+        var nextArrow;
+        var prevArrow;
+        var sliderArrows = window.sliderArrows || false;
+
+        // sliderArrows is an object defined in product.liquid to set custom
+        // SVG arrow icons.
+        if (sliderArrows) {
+          nextArrow =
+            '<button type="button" class="slick-next"><span class="medium-up--hide">' +
+            sliderArrows.right +
+            '</span><span class="small--hide">' +
+            sliderArrows.right +
+            '</span></button>';
+          prevArrow =
+            '<button type="button" class="slick-prev"><span class="medium-up--hide">' +
+            sliderArrows.left +
+            '</span><span class="small--hide">' +
+            sliderArrows.left +
+            '</span></button>';
+        }
+
+        $productThumbsWrapper.slick({
+          accessibility: false,
+          arrows: true,
+          dots: false,
+          infinite: false,
+          autoplay: false,
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          vertical: false,
+          verticalSwiping: false,
+          nextArrow: nextArrow,
+          prevArrow: prevArrow
+        });
+      //}
     },
 
     _productSwipeInit: function(evt, obj) {
