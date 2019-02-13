@@ -9,10 +9,13 @@ Meta data must be added to each of you products that you want to have related pr
 
 For each product that will have related products add the following meta fields:
 
-Namespace:    related-products
-Key:          handle-x - where x is a sequential number starting at 1
-Value Type:   string
-Value:        the product handle
+| Namespace        | Key             | Value Type | Value                  | Notes                                       |
+|------------------|:----------------|:-----------|:-----------------------|:--------------------------------------------|
+| related-products | handle-x        | string     | the product handle     | where x is a sequential number starting at 1|
+|Namespace:    related-products
+|Key:          handle-x - where x is a sequential number starting at 1
+|Value Type:   string
+|Value:        the product handle
 
 Exampe:
 
