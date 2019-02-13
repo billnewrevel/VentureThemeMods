@@ -203,6 +203,10 @@
           </div>
         {% endform %}
 
+ 		{% comment %} if there are any related products then show the related products slider{% endcomment %}
+	    {% if product.metafields.related-products %}
+	    	{% include 'related-product-types' %}
+	    {% endif %}
         <hr>
 
         <div class="rte product-single__description" itemprop="description">
