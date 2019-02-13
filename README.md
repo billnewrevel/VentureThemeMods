@@ -15,7 +15,7 @@ For each product that will have related products add the following meta fields:
 
 Exampe:
 
-For product handle *chronic-zone-hooded-sweatshirt*, which is a hoodie, I also want to display a t-shirt and long sleeve t-shirt on the hoodie's product page. So I need to add product handles for both the t-shirt and long-sleeve t-shirt to the hoodies meta data. So the hoodies meta data will look like the following - note there will be 2 meta data entries because we want to relate 2 products:
+For product handle **chronic-zone-hooded-sweatshirt**, which is a hoodie, I also want to display a t-shirt and long sleeve t-shirt on the hoodie's product page. So I need to add product handles for both the t-shirt and long-sleeve t-shirt to the hoodies meta data. So the hoodies meta data will look like the following - note there will be 2 meta data entries because we want to relate 2 products:
 
 | Namespace        | Key             | Value Type | Value                  |
 |:-----------------|:----------------|:-----------|:-----------------------|
