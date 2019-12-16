@@ -5,7 +5,19 @@ Modifications to the Shopify Venture Theme for use in my online t-shirt stores
 
 Adds functionality to display related product styles on a product page.  This feature is useful for product designs that are offered on multiple apparel types, e.g., a single design that apprears on t-shirts, long-sleeve t-shirts, and hoodies - but could also be used to bundle products - although that is not what I am using it for, the coding is the same. The product page file sections/product-template.liquid has an added section below the payment buttons that will display the related products if there are any to display. If the user clicks on the image, they will be taken to the product page.
 
-Meta data must be added to each of you products that you want to have related products. I'm using the Shopify app MetaFields Editor, but you can use any app that allows you to add meta data to your products.
+**Relevent Code**
+
+sections/product-template.liquid
+
+I've added a block of code beginning at line 206 that looks at a product's metafields attribute for a namespace called 'related-products'. If the product has this namespace then I assume the product has other related products associated with it, and then I call the snippets/related-product-types.liquid
+
+snippets/related-product-types.liquid
+
+This liquid code snippet builds a list of product URLs from the product handles from each of the entries contained in the 'related-products' attribute and displays them on the product page
+
+**Addng Meta Data For Related Products**
+
+Meta data must be added to each of your products that you want to have related products. I'm using the Shopify app MetaFields Editor, but you can use any app that allows you to add meta data to your products.
 
 For each product that will have related products add the following meta fields:
 
@@ -28,5 +40,6 @@ Now for product handles *chronic-zone-long-sleeve-t-shirt* and *chronic-zone-sho
 |:-----------------|:----------------|:-----------|:-----------------------|
 | related-products | handle-1        | string     | chronic-zone-hooded-sweatshirt     |
 | related-prodcuts | handle-2        | string     | chronic-zone-short-sleeve-unisex-t-shirt |
+
 
 
